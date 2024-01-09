@@ -19,9 +19,9 @@ function createWindow () {
    * Initial window options
    */
   mainWindow = new BrowserWindow({
-    height: 563,
+    height: 477,
     useContentSize: true,
-    width: 1000
+    width: 360
   })
 
   mainWindow.loadURL(winURL)
@@ -32,6 +32,11 @@ function createWindow () {
 }
 
 app.on('ready', createWindow)
+app.on('ready', () => {
+  if (process.env.NODE_ENV !== 'production') {
+    require('vue-devtools').install()
+  }
+})
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
