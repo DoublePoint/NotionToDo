@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow,Menu } from 'electron'
 import '../renderer/store'
 
 /**
@@ -21,7 +21,8 @@ function createWindow () {
   mainWindow = new BrowserWindow({
     height: 477,
     useContentSize: true,
-    width: 360
+    width: 360,
+    // frame: false, // 去掉导航最大化最小化以及关闭按钮
   })
 
   mainWindow.loadURL(winURL)
@@ -31,7 +32,9 @@ function createWindow () {
   })
 }
 
-app.on('ready', createWindow)
+app.on('ready', ()=>{
+  createWindow()
+})
 app.on('ready', () => {
   if (process.env.NODE_ENV !== 'production') {
     require('vue-devtools').install()
