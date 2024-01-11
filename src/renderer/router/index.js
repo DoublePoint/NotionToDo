@@ -22,11 +22,17 @@ export default new Router({
     {
       path: '/',
       name: 'index-page',
-      component: require('@/components/IndexPage').default
+      redirect: "/ToDo",
+      component: require('@/components/IndexPage').default,
+      children:[{
+        path:"/ToDo",
+        name:'/ToDo',
+        component: require("@/components/MainPage/ToDo.vue").default
+      }]
     },
     {
       path: '*',
-      redirect: '/'
+      redirect: '/ToDo'
     }
   ]
 })

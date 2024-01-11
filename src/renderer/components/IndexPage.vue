@@ -1,24 +1,21 @@
 <template>
-    <div id="wrapper">
-      <titlebar></titlebar>
-    </div>
-  </template>
-  
-  <script>
-  import Titlebar from '@/components/Titlebar.vue'
+  <div id="wrapper">
+    <no-titlebar></no-titlebar>
+    <router-view></router-view>
+  </div>
+</template>
+
+<script>
+import NoTitlebar from "@/components/Titlebar.vue";
 export default {
-    name: 'index-page',
-    components: { 
-        Titlebar
-    },
-    methods: {
-    open (link) {
-    }
-    }
-}
-  </script>
-  
-  <style>
-    
-  </style>
-  
+  name: "index-page",
+  components: {
+    NoTitlebar,
+  },
+  methods: {
+    open(link) {},
+  },
+};
+</script>
+
+<style></style>

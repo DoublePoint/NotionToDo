@@ -21,7 +21,7 @@ function createWindow () {
   mainWindow = new BrowserWindow({
     height: 477,
     useContentSize: true,
-    width: 360,
+    width: 1260,
     // frame: false, // 去掉导航最大化最小化以及关闭按钮
   })
 
@@ -30,6 +30,7 @@ function createWindow () {
   mainWindow.on('closed', () => {
     mainWindow = null
   })
+  mainWindow.webContents.openDevTools()
 }
 
 app.on('ready', ()=>{
@@ -38,6 +39,7 @@ app.on('ready', ()=>{
 app.on('ready', () => {
   if (process.env.NODE_ENV !== 'production') {
     require('vue-devtools').install()
+    
   }
 })
 
