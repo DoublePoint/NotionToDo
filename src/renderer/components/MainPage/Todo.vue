@@ -1,5 +1,6 @@
 !<template>
-    <div>
+    <div style="width: 100%;height: 100%;">
+        <webview id="geekori" src="http://www.baidu.com" style="width:100%; height:100%" nodeintegration="true"></webview>
         <No-Menu></no-Menu>
     </div>
 </template>

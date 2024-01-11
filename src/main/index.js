@@ -22,6 +22,10 @@ function createWindow () {
     height: 477,
     useContentSize: true,
     width: 1260,
+    // 需要在BrowserWindow 的 webPreferences 中设置 webviewTag 为 true
+    webPreferences: {
+      webviewTag:true
+   }
     // frame: false, // 去掉导航最大化最小化以及关闭按钮
   })
 

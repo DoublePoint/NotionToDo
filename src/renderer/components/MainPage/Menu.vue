@@ -127,7 +127,6 @@
   
     computed: {
       currentDrawer() {
-        console.log(this.$store.getters["Menu/currentMenu"]);
         return this.$store.getters["Menu/currentMenu"]
       }
     },
