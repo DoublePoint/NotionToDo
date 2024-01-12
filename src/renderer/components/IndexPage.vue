@@ -3,9 +3,9 @@
     <no-titlebar></no-titlebar>
     <!-- <NotionRenderer :blockMap="blockMap" fullPage /> -->
     <!-- <vue-notion-render :unofficial="false" :data="data" /> -->
-    <vue-notion-render :unofficial="false" :data="data" />
-    123
-    <router-view></router-view>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 
@@ -13,26 +13,19 @@
 import NoTitlebar from "@/components/Titlebar.vue";
 import {GetToDayTodo} from "../util/request.js";
 import Setting from "/src/setting";
-import VueNotionRender from "@/components/render/vue-notion-render"
+
 export default {
   name: "index-page",
   components: {
-    NoTitlebar,VueNotionRender
+    NoTitlebar
   },
-  data: () => ({ blockMap: null,data:[ {
-          blockId: "fe30b1ce-84a7-47b3-abe1-b3448b989115",
-          componentName: "Component1"
-        },
-        {
-          blockId: "305fed49-f7e8-412f-80a1-b32e2bbd5a01",
-          componentName: "Component2"
-        }] }),
+  data: () => ({ blockMap: null,data:[ ] }),
   async created() {
         // Retrieve block children and pass the results array to data
         // https://developers.notion.com/reference/get-block-children
         const data = await GetToDayTodo(Setting.NOTION_PAGE_ID)
         console.log(data.data.results);
-        // this.data = data.data.results
+        this.data = data.data.results
     },
   async mounted() {
     this.testNotion();

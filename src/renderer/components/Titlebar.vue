@@ -7,7 +7,7 @@
       title="Settings"
       @click="toggleDrawer"
     >
-      <div class="Menu-wrapper" :class="drawerOpen ? 'is-collapsed' : ''">
+      <div class="Menu-wrapper" :class="settingOpen ? 'is-collapsed' : ''">
         <div class="Menu-line"></div>
         <div class="Menu-line"></div>
       </div>
@@ -101,8 +101,8 @@ import { ipcRenderer } from 'electron'
 
 export default {
   computed: {
-    drawerOpen() {
-      return this.$store.getters.drawerOpen
+    settingOpen() {
+      return this.$store.getters["Menu/currentMenu"]=="Setting"
     },
 
     minToTray() {
@@ -116,7 +116,15 @@ export default {
 
   methods: {
     toggleDrawer() {
-      this.$store.dispatch('toggleDrawer')
+      if(this.$store.getters["Menu/currentMenu"]=="Setting"){
+        this.$router.push('/Todo');
+        this.$store.dispatch('Menu/COMMIT_MENU',"Todo")
+      }
+      else{
+        this.$store.dispatch('Menu/COMMIT_MENU',"Setting")
+        this.$router.push('/Setting/Index');
+      }
+      
     },
 
     winClose() {

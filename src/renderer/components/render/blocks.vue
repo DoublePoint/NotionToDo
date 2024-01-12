@@ -29,15 +29,15 @@
       <Txt :p="block.bulleted_list_item.text" />
     </li>
     <!-- Todo list -->
-    <div v-else-if="block.type == 'to_do' && block.to_do.text">
+    <div v-else-if="block.type == 'to_do' ">
       <input
         type="checkbox"
         :id="block.id"
-        :value="block.to_do.plain_text"
+        :value="block.to_do.rich_text[0]?.plain_text"
         :checked="block.to_do.checked"
         disabled="disabled"
       />
-      <label><Txt :p="block.to_do.text"/></label>
+      <label><Txt :p="block.to_do.rich_text"/></label>
     </div>
     <!-- 
         **************

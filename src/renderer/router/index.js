@@ -1,7 +1,7 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import Vue from "vue";
+import Router from "vue-router";
 
-Vue.use(Router)
+Vue.use(Router);
 
 // export default new Router({
 //   routes: [
@@ -20,19 +20,33 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'index-page',
+      path: "/",
+      name: "index-page",
       redirect: "/ToDo",
-      component: require('@/components/IndexPage').default,
-      children:[{
-        path:"/ToDo",
-        name:'/ToDo',
-        component: require("@/components/MainPage/ToDo.vue").default
-      }]
+      component: require("@/components/IndexPage").default,
+      children: [
+        {
+          path: "/ToDo",
+          name: "/ToDo",
+          component: require("@/components/MainPage/ToDo.vue").default,
+        },
+        {
+          path: "/Setting",
+          name: "/Setting",
+          component: require("@/components/Setting/Index").default,
+          children: [
+            {
+              path: "/Setting/Index",
+              name: "/Setting/Index",
+              component: require("@/components/Setting/Setting").default,
+            },
+          ],
+        },
+      ],
     },
     {
-      path: '*',
-      redirect: '/ToDo'
-    }
-  ]
-})
+      path: "*",
+      redirect: "/ToDo",
+    },
+  ],
+});
