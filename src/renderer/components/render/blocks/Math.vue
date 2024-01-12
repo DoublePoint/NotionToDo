@@ -2,7 +2,7 @@
   <div v-html="equation"></div>
 </template>
 <script>
-import katex from "katex";
+// import katex from "katex";
 
 export default {
   props: {
@@ -15,10 +15,10 @@ export default {
   },
   mounted() {
     try {
-      const rendered = katex.renderToString(this.data.equation, {
-        throwOnError: false,
-      });
-      this.equation = rendered;
+      // const rendered = katex.renderToString(this.data.equation, {
+      //   throwOnError: false,
+      // });
+      // this.equation = rendered;
     } catch (err) {}
   },
 };

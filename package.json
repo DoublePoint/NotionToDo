@@ -50,14 +50,12 @@
     }
   },
   "dependencies": {
-    "@notion-render/client": "0.0.2",
-    "@notionhq/client": "2.0",
     "axios": "^0.18.0",
     "dayjs": "^1.11.10",
+    "katex": "^0.16.9",
+    "prismjs": "^1.29.0",
     "vue": "^2.5.16",
     "vue-electron": "^1.0.6",
-    "vue-notion": "^1.5.1",
-    "vue-notion-render": "^1.1.4",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1",
     "vuex-electron": "^1.0.0"

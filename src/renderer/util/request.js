@@ -2,13 +2,13 @@ import Setting from "../../setting"
 import axios from '@/http/axios'
 import * as dayjs from 'dayjs'
 
-const { Client } = require("@notionhq/client")
+// const { Client } = require("@notionhq/client")
 
 
 // Initializing a client
-const notion = new Client({
-  auth: Setting.NOTION_KEY,
-})
+// const notion = new Client({
+//   auth: Setting.NOTION_KEY,
+// })
 
 
 export async function GetPageChildren(pageId){
@@ -97,4 +97,4 @@ function GetTodayPageId(res){
 
 
 
-export default notion
+// export default notion
