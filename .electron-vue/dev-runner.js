@@ -70,7 +70,28 @@ function startRenderer () {
           ctx.middleware.waitUntilValid(() => {
             resolve()
           })
-        }
+        },
+
+        // 设置服务器跨域
+        proxy: {
+          '/api': {
+            // 请求的目标服务器地址
+            target: 'https://api.notion.com/',
+            // 设置允许跨域
+            secure:true,
+            changeOrigin: true,
+            // 重写路径
+            pathRewrite: {
+              '^/api': ''
+            },
+            headers: {
+              referer: '',
+              "Notion-Version": "2022-06-28",
+              // "Authorization": `Bearer secret_JyUmwx8aJ3tnUKQKPwzslMOqnqoYdBOVHH8DiPGq9XN`,
+            }
+          }
+        },
+
       }
     )
 
