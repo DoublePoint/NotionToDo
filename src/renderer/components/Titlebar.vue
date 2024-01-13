@@ -13,7 +13,7 @@
       </div>
     </div>
 
-    <h1 class="Title">Pomotroid</h1>
+    <h1 class="Title">Notion TODO</h1>
 
     <div class="Icon-group" style="position: absolute; top: 0; right: 0;">
       <div
@@ -98,7 +98,7 @@
 
 <script>
 import { ipcRenderer } from 'electron'
-
+import themer from '@/util/Themer'
 export default {
   computed: {
     settingOpen() {
@@ -119,14 +119,23 @@ export default {
       if(this.$store.getters["Menu/currentMenu"]=="Setting"){
         this.$router.push('/Todo');
         this.$store.dispatch('Menu/COMMIT_MENU',"Todo")
+        // document.getElementsByTagName("body")[0].style.setProperty(`--color-short-round`, 'red');
+        this.selectTheme("D.Va");
       }
       else{
         this.$store.dispatch('Menu/COMMIT_MENU',"Setting")
         this.$router.push('/Setting/Index');
+        // document.getElementsByTagName("body")[0].style.setProperty(`--color-short-round`, 'blue');
+        this.selectTheme("City Lights");
       }
       
     },
-
+    selectTheme(themeName) {
+      const payload = { key: 'theme', val: themeName }
+      this.$store.dispatch('View/setSetting', payload)
+      // this.$store.dispatch('setViewState', payload)
+      themer.apply(themeName)
+    },
     winClose() {
       this.minToTrayOnClose
         ? this.winMinimize()
@@ -142,17 +151,16 @@ export default {
 
 <style lang="less" scoped>
 
-
 .Icon--close,
 .Icon--minimize {
   & line {
-    stroke: @color-background-lightest;
+    stroke: var(--color-background-lightest);
     transition: @transitionDefault;
   }
 }
 
 .Menu-line {
-  background-color: @color-background-lightest;
+  background-color: var(--color-background-lightest);
   display: inline-block;
   transition: @transitionDefault;
   width: 20px;

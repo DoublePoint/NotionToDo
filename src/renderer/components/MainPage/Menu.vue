@@ -143,54 +143,53 @@
   }
   </script>
   
-  <style lang="less" scoped>
-  .Drawer-menu {
-    background-color: @color-background;
-    display: flex;
+<style lang="less" scoped>
+.Drawer-menu {
+  background-color: var(--color-background);
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 36px;
+}
+
+.Drawer-menu-wrapper {
+  align-items: center;
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: center;
+  position: relative;
+  transition: @transitionDefault;
+  height: 100%;
+  &:hover {
+    background-color: var(--color-background-light);
+  }
+  &::after {
+    background-color: var(--color-accent);
+    content: '';
+    margin: 0 auto;
     position: absolute;
+    right: 0;
     bottom: 0;
     left: 0;
-    width: 100%;
-    height: 36px;
+    transition: @transitionSnappy;
+    width: 0;
+    height: 2px;
   }
-  
-  .Drawer-menu-wrapper {
-    align-items: center;
-    display: flex;
-    flex: 1 1 auto;
-    justify-content: center;
-    position: relative;
-    transition: @transitionDefault;
-    height: 100%;
-    &:hover {
-      background-color: @color-background-light;
-    }
-    &::after {
-      background-color: @color-accent;
-      content: '';
-      margin: 0 auto;
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      transition: @transitionSnappy;
-      width: 0;
-      height: 2px;
-    }
-    &.is-active::after {
-      width: 33%;
-    }
+  &.is-active::after {
+    width: 33%;
   }
-  
-  .Drawer-menu-button {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    width: 45px;
-    height: 100%;
-    &.is-active {
-      border-bottom: 4px solid @color-accent;
-    }
+}
+
+.Drawer-menu-button {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 45px;
+  height: 100%;
+  &.is-active {
+    border-bottom: 4px solid var(--color-accent);
   }
-  </style>
-  
+}
+</style>

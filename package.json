@@ -58,7 +58,8 @@
     "vue-electron": "^1.0.6",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1",
-    "vuex-electron": "^1.0.0"
+    "vuex-electron": "^1.0.0",
+    "winston-daily-rotate-file": "^4.7.1"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
