@@ -1,6 +1,8 @@
 <template>
-  <div>
-    <router-view></router-view>
+  <div style="height: 100%;">
+    <div class="mainpage">
+      <router-view></router-view>
+    </div>
     <No-Menu></No-Menu>
   </div>
 </template>
@@ -16,4 +18,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="less" scoped>
+.mainpage{
+  height: calc(100% - 36px);
+}
+</style>

@@ -40,6 +40,11 @@ export default new Router({
               name: "/Setting/Index",
               component: require("@/components/Setting/Setting").default,
             },
+            {
+              path:"/Setting/Theme",
+              name:"/Setting/Theme",
+              component: require("@/components/Setting/Theme").default,
+            }
           ],
         },
       ],

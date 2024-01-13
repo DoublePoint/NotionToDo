@@ -22,4 +22,7 @@ export default {
 
 <style>
 /* CSS */
+#app{
+  height:477px;
+}
 </style>

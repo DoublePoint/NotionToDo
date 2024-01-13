@@ -4,7 +4,9 @@
     <!-- <NotionRenderer :blockMap="blockMap" fullPage /> -->
     <!-- <vue-notion-render :unofficial="false" :data="data" /> -->
     <keep-alive>
-      <router-view></router-view>
+      <div class="main">
+        <router-view></router-view>
+      </div>
     </keep-alive>
   </div>
 </template>
@@ -56,4 +58,11 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+#wrapper{
+  height: 100%;
+}
+.main{
+  height: calc(100% - 50px);
+}
+</style>

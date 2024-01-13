@@ -3,8 +3,8 @@
       <div
         class="Drawer-menu-wrapper"
         title="Timer Configuration"
-        @click="setDrawerComponent('appDrawerTimer')"
-        :class="{ 'is-active': currentDrawer === 'ToDo' }"
+        @click="openPage('Index')"
+        :class="{ 'is-active': currentSettingPath === 'Index' }"
       >
         <div class="Drawer-menu-button">
           <div class="Icon-wrapper">
@@ -39,8 +39,8 @@
       <div
         class="Drawer-menu-wrapper"
         title="Options"
-        @click="setDrawerComponent('appDrawerSettings')"
-        :class="{ 'is-active': currentDrawer === 'appDrawerSettings' }"
+        @click="openPage('appDrawerSettings')"
+        :class="{ 'is-active': currentSettingPath === 'appDrawerSettings' }"
       >
         <div class="Drawer-menu-button">
           <svg
@@ -71,8 +71,8 @@
       <div
         class="Drawer-menu-wrapper"
         title="Themes"
-        @click="setDrawerComponent('appDrawerTheme')"
-        :class="{ 'is-active': currentDrawer === 'appDrawerTheme' }"
+        @click="openPage('Theme')"
+        :class="{ 'is-active': currentSettingPath === 'Theme' }"
       >
         <div class="Drawer-menu-button">
           <div class="Icon-wrapper">
@@ -96,8 +96,8 @@
       <div
         class="Drawer-menu-wrapper"
         title="About"
-        @click="setDrawerComponent('appDrawerAbout')"
-        :class="{ 'is-active': currentDrawer === 'appDrawerAbout' }"
+        @click="openPage('appDrawerAbout')"
+        :class="{ 'is-active': currentSettingPath === 'appDrawerAbout' }"
       >
         <div class="Drawer-menu-button">
           <div class="Icon-wrapper">
@@ -124,20 +124,25 @@
   <script>
   export default {
     name: 'Drawer-menu',
-  
-    computed: {
-      currentDrawer() {
-        return this.$store.getters["Menu/currentMenu"]
+    data(){
+      return{
+        currentSettingPath:"ToDo"
       }
     },
-  
+    computed: {
+      // currentSetting() {
+      //   return this.$store.getters["Menu/currentMenu"]
+      // }
+    },
     methods: {
-      setDrawerComponent(component) {
-        const payload = {
-          key: 'currentDrawer',
-          val: component
-        }
-        this.$store.dispatch('setViewState', payload)
+      openPage(path) {
+        // const payload = {
+        //   key: 'currentSetting',
+        //   val: component
+        // }
+        this.$router.push(path);
+        this.currentSettingPath = path;
+        // this.$store.dispatch('setViewState', payload)
       }
     }
   }

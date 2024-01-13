@@ -196,7 +196,7 @@ export default {
 
 .Titlebar {
   letter-spacing: 0.05em;
-  margin-bottom: 18px;
+  // margin-bottom: 18px;
   position: relative;
   text-align: center;
   height: 50px;
