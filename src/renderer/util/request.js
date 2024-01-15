@@ -1,4 +1,3 @@
-import Setting from "../../setting"
 import axios from '@/http/axios'
 import * as dayjs from 'dayjs'
 

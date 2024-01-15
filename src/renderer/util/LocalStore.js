@@ -62,6 +62,7 @@ export default class LocalStore {
   constructor(filename, data) {
     const userDataPath = userDir()
     this.path = path.join(userDataPath, filename + '.json')
+    //console.log('this.path:'+this.path);
     this.data = parseDataFile(this.path, data)
     //logger.info(`Preferences loaded from ${this.path}`)
   }

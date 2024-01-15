@@ -102,7 +102,7 @@ import themer from '@/util/Themer'
 export default {
   computed: {
     settingOpen() {
-      return this.$store.getters["Menu/currentMenu"]=="Setting"
+      return this.$store.getters["Menu/currentMenu"]!="ToDo"
     },
 
     minToTray() {
@@ -116,14 +116,14 @@ export default {
 
   methods: {
     toggleDrawer() {
-      if(this.$store.getters["Menu/currentMenu"]=="Setting"){
-        this.$router.push('/Todo');
-        this.$store.dispatch('Menu/COMMIT_MENU',"Todo")
+      if(this.$store.getters["Menu/currentMenu"]!=="ToDo"){
+        this.$store.dispatch('Menu/COMMIT_MENU',"ToDo");
+        this.$router.push('/ToDo');
         // document.getElementsByTagName("body")[0].style.setProperty(`--color-short-round`, 'red');
         this.selectTheme("D.Va");
       }
       else{
-        this.$store.dispatch('Menu/COMMIT_MENU',"Setting")
+        this.$store.dispatch('Menu/COMMIT_MENU',"/Setting/Index")
         this.$router.push('/Setting/Index');
         // document.getElementsByTagName("body")[0].style.setProperty(`--color-short-round`, 'blue');
         this.selectTheme("City Lights");

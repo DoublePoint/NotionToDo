@@ -17,7 +17,7 @@ export default {
   data: () => ({ blockMap: null,data:[ ] }),
   async created(){
     const data = await GetToDayTodo(Setting.NOTION_PAGE_ID);
-    console.log(data.data.results);
+    //console.log(data.data.results);
     this.data = data.data.results;
   }
 };

@@ -1,7 +1,7 @@
 import { localStore } from './index'
-console.log(localStore);
+//console.log(localStore);
 const state = {
-  theme: localStore.get('theme') || 'Pomotroid'
+  theme: localStore.get('theme') || 'Pomotroid',
 }
 
 const getters = {
@@ -13,6 +13,7 @@ const getters = {
 const mutations = {
   SET_SETTING(state, payload) {
     localStore.set(payload.key, payload.val)
+    state[payload.key] = payload.val
   },
 }
 

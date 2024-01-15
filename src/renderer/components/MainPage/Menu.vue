@@ -3,8 +3,8 @@
       <div
         class="Drawer-menu-wrapper"
         title="Timer Configuration"
-        @click="openPage('Index')"
-        :class="{ 'is-active': currentSettingPath === 'Index' }"
+        @click="openPage('/Setting/Index')"
+        :class="{ 'is-active': currentSettingPath === '/Setting/Index' }"
       >
         <div class="Drawer-menu-button">
           <div class="Icon-wrapper">
@@ -36,11 +36,11 @@
           </div>
         </div>
       </div>
-      <div
+      <!-- <div
         class="Drawer-menu-wrapper"
         title="Options"
-        @click="openPage('appDrawerSettings')"
-        :class="{ 'is-active': currentSettingPath === 'appDrawerSettings' }"
+        @click="openPage('/Setting/Index')"
+        :class="{ 'is-active': currentSettingPath === '/Setting/Index' }"
       >
         <div class="Drawer-menu-button">
           <svg
@@ -67,12 +67,12 @@
             />
           </svg>
         </div>
-      </div>
+      </div> -->
       <div
         class="Drawer-menu-wrapper"
         title="Themes"
-        @click="openPage('Theme')"
-        :class="{ 'is-active': currentSettingPath === 'Theme' }"
+        @click="openPage('/Setting/Theme')"
+        :class="{ 'is-active': currentSettingPath === '/Setting/Theme' }"
       >
         <div class="Drawer-menu-button">
           <div class="Icon-wrapper">
@@ -96,8 +96,8 @@
       <div
         class="Drawer-menu-wrapper"
         title="About"
-        @click="openPage('appDrawerAbout')"
-        :class="{ 'is-active': currentSettingPath === 'appDrawerAbout' }"
+        @click="openPage('/Setting/About')"
+        :class="{ 'is-active': currentSettingPath === '/Setting/About' }"
       >
         <div class="Drawer-menu-button">
           <div class="Icon-wrapper">
@@ -126,13 +126,12 @@
     name: 'Drawer-menu',
     data(){
       return{
-        currentSettingPath:"ToDo"
       }
     },
     computed: {
-      // currentSetting() {
-      //   return this.$store.getters["Menu/currentMenu"]
-      // }
+      currentSettingPath() {
+        return this.$store.getters["Menu/currentMenu"]
+      }
     },
     methods: {
       openPage(path) {
@@ -141,7 +140,8 @@
         //   val: component
         // }
         this.$router.push(path);
-        this.currentSettingPath = path;
+        this.$store.dispatch('Menu/COMMIT_MENU',"/Setting/Index")
+        // this.currentSettingPath = path;
         // this.$store.dispatch('setViewState', payload)
       }
     }

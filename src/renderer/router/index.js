@@ -1,23 +1,12 @@
 import Vue from "vue";
 import Router from "vue-router";
-
+import {createLocalStore} from "../util/LocalStore";
+import vuex from '@/store/index.js'
 Vue.use(Router);
+const localStore = createLocalStore()
 
-// export default new Router({
-//   routes: [
-//     {
-//       path: '/',
-//       name: 'landing-page',
-//       component: require('@/components/LandingPage').default
-//     },
-//     {
-//       path: '*',
-//       redirect: '/'
-//     }
-//   ]
-// })
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: "/",
@@ -38,12 +27,17 @@ export default new Router({
             {
               path: "/Setting/Index",
               name: "/Setting/Index",
-              component: require("@/components/Setting/Setting").default,
+              component: require("@/components/Setting/SettingSecret").default,
             },
             {
               path:"/Setting/Theme",
               name:"/Setting/Theme",
               component: require("@/components/Setting/Theme").default,
+            },
+            {
+              path:"/Setting/About",
+              name:"/Setting/About",
+              component: require("@/components/Setting/About").default,
             }
           ],
         },
@@ -55,3 +49,20 @@ export default new Router({
     },
   ],
 });
+const originalPush = Router.prototype.push
+Router.prototype.push = function push (location, onResolve, onReject) {
+  if (onResolve || onReject) return originalPush.call(this, location, onResolve, onReject)
+  return originalPush.call(this, location).catch(err => err)
+}
+router.beforeEach((to, from, next) => {
+  // debugger
+  if(to.name==="/Setting/Index" || localStore.get("SECRET_KEY")){
+    next()
+  }
+  else{
+    vuex.dispatch('Menu/COMMIT_MENU',"/Setting/Index")
+    next({name:"/Setting/Index"})
+  }
+})
+
+export default router
