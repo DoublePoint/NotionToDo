@@ -52,6 +52,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "dayjs": "^1.11.10",
+    "element-ui": "^2.15.14",
     "katex": "^0.16.9",
     "prismjs": "^1.29.0",
     "vue": "^2.5.16",
