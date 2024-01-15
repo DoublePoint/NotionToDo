@@ -85,7 +85,6 @@ function GetTodayPageId(res){
     let selectDate;
     results.forEach(element => {
         selectDate = dayjs(element.properties.Date.date.start)
-        // //console.log(`start:${element.properties.Date.date.start},now:${now},selectDate:${selectDate.format("YYYYMMDD")},Diff:${now.diff(selectDate, 'day')}`);
         if(now.diff(selectDate, 'day')==0){
             todayPageId = element.id;
         }
@@ -94,6 +93,9 @@ function GetTodayPageId(res){
     return todayPageId;
 }
 
-
-
-// export default notion
+export function BuildPageId(notionPageUrl){
+    if(notionPageUrl){
+        return notionPageUrl.split("?")[0].slice(-32)
+    }
+    return null
+}

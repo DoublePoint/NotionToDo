@@ -21,5 +21,6 @@ export default {
 <style lang="less" scoped>
 .mainpage{
   height: calc(100% - 36px);
+  background: var(--color-background-light);
 }
 </style>

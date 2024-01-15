@@ -13,7 +13,7 @@
       </div>
     </div>
 
-    <h1 class="Title">Notion TODO</h1>
+    <h1 class="Title">Notion To Do</h1>
 
     <div class="Icon-group" style="position: absolute; top: 0; right: 0;">
       <div
@@ -116,17 +116,18 @@ export default {
 
   methods: {
     toggleDrawer() {
+      // debugger
       if(this.$store.getters["Menu/currentMenu"]!=="ToDo"){
         this.$store.dispatch('Menu/COMMIT_MENU',"ToDo");
         this.$router.push('/ToDo');
         // document.getElementsByTagName("body")[0].style.setProperty(`--color-short-round`, 'red');
-        this.selectTheme("D.Va");
+        // this.selectTheme("D.Va");
       }
       else{
         this.$store.dispatch('Menu/COMMIT_MENU',"/Setting/Index")
         this.$router.push('/Setting/Index');
         // document.getElementsByTagName("body")[0].style.setProperty(`--color-short-round`, 'blue');
-        this.selectTheme("City Lights");
+        // this.selectTheme("City Lights");
       }
       
     },

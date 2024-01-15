@@ -3,8 +3,6 @@ import Router from "vue-router";
 import {createLocalStore} from "../util/LocalStore";
 import vuex from '@/store/index.js'
 Vue.use(Router);
-const localStore = createLocalStore()
-
 
 const router = new Router({
   routes: [
@@ -32,12 +30,12 @@ const router = new Router({
             {
               path:"/Setting/Theme",
               name:"/Setting/Theme",
-              component: require("@/components/Setting/Theme").default,
+              component: require("@/components/Setting/SettingTheme").default,
             },
             {
               path:"/Setting/About",
               name:"/Setting/About",
-              component: require("@/components/Setting/About").default,
+              component: require("@/components/Setting/SettingAbout").default,
             }
           ],
         },
@@ -55,6 +53,7 @@ Router.prototype.push = function push (location, onResolve, onReject) {
   return originalPush.call(this, location).catch(err => err)
 }
 router.beforeEach((to, from, next) => {
+  const localStore = createLocalStore()
   // debugger
   if(to.name==="/Setting/Index" || localStore.get("SECRET_KEY")){
     next()

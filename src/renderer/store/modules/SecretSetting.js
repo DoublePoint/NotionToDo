@@ -1,4 +1,5 @@
-import { localStore } from './index'
+import { createLocalStore } from "../../util/LocalStore";
+const localStore = createLocalStore();
 const state = {
   secretKey: localStore.get('secretkey') ,
   notionPageUrl: localStore.get('notionPageUrl') ,
@@ -15,10 +16,12 @@ const getters = {
 
 const mutations = {
   SET_SECRET_KEY(state, secretKey) {
+    const localStore = createLocalStore();
     localStore.set("SECRET_KEY", secretKey)
     state.secretKey = secretKey
   },
   SET_NOTION_PAGE_URL(state, notionPageUrl) {
+    const localStore = createLocalStore();
     localStore.set("NOTION_PAGE_URL", notionPageUrl)
     state.notionPageUrl = notionPageUrl
   },

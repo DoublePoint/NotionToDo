@@ -1,4 +1,5 @@
-import { app, BrowserWindow,Menu } from 'electron'
+import { app, BrowserWindow,Menu,
+  ipcMain, } from 'electron'
 import '../renderer/store'
 
 /**
@@ -21,12 +22,12 @@ function createWindow () {
   mainWindow = new BrowserWindow({
     height: 477,
     useContentSize: true,
-    width: 1260,
+    width: 360,
     // 需要在BrowserWindow 的 webPreferences 中设置 webviewTag 为 true
     webPreferences: {
       webviewTag:true
-   }
-    // frame: false, // 去掉导航最大化最小化以及关闭按钮
+   },
+   frame: false, // 去掉导航最大化最小化以及关闭按钮
   })
 
   mainWindow.loadURL(winURL)
@@ -34,7 +35,7 @@ function createWindow () {
   mainWindow.on('closed', () => {
     mainWindow = null
   })
-  mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools()
 }
 
 app.on('ready', ()=>{
@@ -56,6 +57,19 @@ app.on('window-all-closed', () => {
 app.on('activate', () => {
   if (mainWindow === null) {
     createWindow()
+  }
+})
+
+
+ipcMain.on('window-close', (event, arg) => {
+  mainWindow.close()
+})
+
+ipcMain.on('window-minimize', (event, arg) => {
+  if (arg) {
+    mainWindow.hide()
+  } else {
+    mainWindow.minimize()
   }
 })
 

@@ -2,56 +2,65 @@
 <template>
   <div class="Container">
     <p class="Drawer-heading">Settings</p>
-    
-    <div class="Setting-wrapper">
-        <p class="Setting-title">Secret Key</p>
-        <input v-model="secretKey" @onchange="changeSecretKey($event)" />
-    </div>
-    <div class="Setting-wrapper">
-        <p class="Setting-title">Notion Page Url</p>
-        <br/>
-        <input v-model="notionPageUrl" @onchange="changeNotionPageUrl($event)" />
-    </div>
+    <p class="Setting-title">Secret Key</p>
+    <input
+      class="Setting-input"
+      v-model="secretKey"
+      @onchange="changeSecretKey($event)"
+    />
+    <br />
+    <br />
+    <p class="Setting-title">Notion Page Url</p>
+    <input
+      class="Setting-input"
+      v-model="notionPageUrl"
+      @onchange="changeNotionPageUrl($event)"
+    />
   </div>
 </template>
 
 <script>
-
+import { BuildPageId } from "@/util/request";
 export default {
   name: "Drawer-settings",
-  computed: {
-    
-  },
+  computed: {},
   data() {
     return {
-      secretKey:this.$store.getters["SecretSetting/secretKey"],
-      notionPageUrl:this.$store.getters["SecretSetting/notionPageUrl"],
+      secretKey: this.$store.getters["SecretSetting/secretKey"],
+      notionPageUrl: this.$store.getters["SecretSetting/notionPageUrl"],
     };
   },
-  watch:{
-    secretKey(newVal){
-      this.$store.dispatch("SecretSetting/SET_SECRET_KEY",newVal);
+  watch: {
+    secretKey(newVal) {
+      this.$store.dispatch("SecretSetting/SET_SECRET_KEY", newVal);
+      this.initHttpHeaderSecretKey();
     },
-    notionPageUrl(newVal){
-      this.$store.dispatch("SecretSetting/SET_NOTION_PAGE_URL",newVal);
-    }
+    notionPageUrl(newVal) {
+      debugger;
+      this.$store.dispatch("SecretSetting/SET_NOTION_PAGE_URL", newVal);
+      const pageId = BuildPageId(newVal);
+      if (!pageId) {
+        alert("Error");
+        return;
+      }
+      this.$localStore.set("NOTION_PAGE_ID", pageId);
+    },
   },
   methods: {
-    changeSecretKey(e){
-      var val = e.target.value;
-      this.$store.commit("SecretSetting/SET_SECRET_KEY",val);
+    initHttpHeaderSecretKey(e) {
+      //设置SecretKey
+      this.$http.interceptors.request.use(
+        (config) => {
+          //config.data = JSON.stringify(config.data);
+          config.headers["Authorization"] = `Bearer ${val}`;
+          return config;
+        },
+        (error) => {
+          return Promise.reject(error.response);
+        }
+      );
     },
-    changeNotionPageUrl(e){
-      var val = e.target.value;
-      this.$store.commit("SecretSetting/SET_NOTION_PAGE_URL",val);
-    }
-    
   },
-  created(){
-    //console.log(this.$store.getters);
-    //console.log('this.$store.getters["SecretSetting/secretKey"]'+this.$store.getters["SecretSetting/secretKey"]);
-    //console.log('this.$store.getters["SecretSetting/notionPageUrl"]'+this.$store.getters["SecretSetting/notionPageUrl"]);
-  }
 };
 </script>
 
@@ -95,12 +104,17 @@ export default {
   color: var(--color-foreground-darker);
   font-size: 14px;
   letter-spacing: 0.05em;
+  width: 100%;
+  display: block;
 }
-
-.Drawer-heading{
-    display: inline-block;
-    text-align: center;
-    width: 100%;
-    
+.Setting-input {
+  width: 100%;
+  display: block;
+  margin-top: 5px;
+}
+.Drawer-heading {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
 }
 </style>

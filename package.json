@@ -1,5 +1,5 @@
 {
-  "name": "ntd",
+  "name": "Notion To Do",
   "version": "0.0.1",
   "author": "",
   "description": "An electron-vue project",
@@ -16,7 +16,7 @@
     "postinstall": ""
   },
   "build": {
-    "productName": "ntd",
+    "productName": "Notion To Do",
     "appId": "com.doublepoint.com",
     "directories": {
       "output": "build"
@@ -104,6 +104,7 @@
     "less-loader": "^7.3.0",
     "listr": "^0.14.3",
     "mini-css-extract-plugin": "0.4.0",
+    "multispinner": "^0.2.1",
     "node-loader": "^0.6.0",
     "sass-loader": "^7.3.1",
     "sass-resources-loader": "^2.2.5",

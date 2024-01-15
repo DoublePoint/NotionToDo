@@ -1,6 +1,6 @@
 <template>
     <div class="Container">
-      <p class="Drawer-heading">About</p>
+      <p class="Drawer-heading">关于</p>
       <section>
         <svg
           version="1.2"
@@ -30,14 +30,14 @@
             />
           </g>
         </svg>
-        <h2>Pomotroid</h2>
+        <h2>Notion To Do</h2>
         <p class="label">
-          Version: {{ version }}
+          版本: {{ version }}
           <span class="link" @click="openUrl(releaseUrl)">(release notes)</span>
         </p>
         <p
           class="label link"
-          @click="openUrl('https://github.com/splode/pomotroid')"
+          @click="openUrl('https://github.com/DoublePoint/NotionToDo')"
         >
           License and Documentation
         </p>
@@ -64,7 +64,7 @@
     },
     methods: {
       openUrl(url) {
-        shell.openExternal(url)
+        shell.openExternal("https://github.com/DoublePoint/NotionToDo")
       }
     }
   }
