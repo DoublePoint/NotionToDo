@@ -23,15 +23,6 @@ export default {
   },
   data: () => ({ blockMap: null,data:[ ] }),
   async created() {
-    // const notionPageUrl = this.$store.getters["SecretSetting/notionPageUrl"];
-    //     const pageId = BuildPageId(notionPageUrl)
-    //     if(pageId){
-    //       const data = await GetToDayTodo(pageId)
-    //       this.data = data.data.results
-    //     }
-    //     else{
-    //       alert(`Error:NotionPageUrl:${notionPageUrl},NotionPageId:${pageId}`);
-    //     }
     },
   async mounted() {
     

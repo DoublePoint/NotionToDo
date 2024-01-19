@@ -66,7 +66,7 @@ function startRenderer () {
         quiet: true,
         hot: true,
         before (app, ctx) {
-          // app.use(hotMiddleware)
+          app.use(hotMiddleware)
           ctx.middleware.waitUntilValid(() => {
             resolve()
           })
@@ -74,7 +74,7 @@ function startRenderer () {
 
         // 设置服务器跨域
         proxy: {
-          '/api': {
+          '/v1': {
             // 请求的目标服务器地址
             target: 'https://api.notion.com/',
             // 设置允许跨域
@@ -86,8 +86,6 @@ function startRenderer () {
             },
             headers: {
               referer: '',
-              "Notion-Version": "2022-06-28",
-              // "Authorization": `Bearer secret_JyUmwx8aJ3tnUKQKPwzslMOqnqoYdBOVHH8DiPGq9XN`,
             }
           }
         },

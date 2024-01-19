@@ -16,11 +16,14 @@
       v-model="notionPageUrl"
       @onchange="changeNotionPageUrl($event)"
     />
+    <br />
+    <p class="Setting-title">Page ID:  {{pageID}}</p>
   </div>
 </template>
 
 <script>
 import { BuildPageId } from "@/util/request";
+import { createLocalStore } from "../../util/LocalStore";
 export default {
   name: "Drawer-settings",
   computed: {},
@@ -28,6 +31,7 @@ export default {
     return {
       secretKey: this.$store.getters["SecretSetting/secretKey"],
       notionPageUrl: this.$store.getters["SecretSetting/notionPageUrl"],
+      pageID:createLocalStore().get("NOTION_PAGE_ID")
     };
   },
   watch: {
@@ -43,7 +47,8 @@ export default {
         alert("Error");
         return;
       }
-      this.$localStore.set("NOTION_PAGE_ID", pageId);
+      this.pageID = pageId;
+      createLocalStore().set("NOTION_PAGE_ID", pageId);
     },
   },
   methods: {

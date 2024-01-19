@@ -1,5 +1,4 @@
-import { app, BrowserWindow,Menu,
-  ipcMain, } from 'electron'
+import { app, BrowserWindow,Menu,ipcMain, } from 'electron'
 import '../renderer/store'
 
 /**
@@ -23,9 +22,13 @@ function createWindow () {
     height: 477,
     useContentSize: true,
     width: 360,
+    alwaysOnTop:true,
     // 需要在BrowserWindow 的 webPreferences 中设置 webviewTag 为 true
     webPreferences: {
-      webviewTag:true
+      webviewTag:true,
+      nodeIntegration: true,   
+      enableRemoteModule: true, 
+      webSecurity:false,
    },
    frame: false, // 去掉导航最大化最小化以及关闭按钮
   })
@@ -44,7 +47,6 @@ app.on('ready', ()=>{
 app.on('ready', () => {
   if (process.env.NODE_ENV !== 'production') {
     require('vue-devtools').install()
-    
   }
 })
 

@@ -1,4 +1,4 @@
-// import { logger } from './logger'
+import { logger } from './logger'
 const electron = require('electron')
 const fs = require('fs')
 const path = require('path')
@@ -64,7 +64,7 @@ export default class LocalStore {
     this.path = path.join(userDataPath, filename + '.json')
     //console.log('this.path:'+this.path);
     this.data = parseDataFile(this.path, data)
-    //logger.info(`Preferences loaded from ${this.path}`)
+    logger.info(`Preferences loaded from ${this.path}`)
   }
 
   /**
