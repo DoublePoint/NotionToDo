@@ -1,4 +1,4 @@
-# ntd
+# Notion To Do
 
 > An electron-vue project
 
