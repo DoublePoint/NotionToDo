@@ -1,8 +1,8 @@
 <template>
-  <div
+  <div v-cloak
     style="width: calc(100% - 20px); height: calc(100% - 20px); padding: 10px;overflow: scroll;"
   >
-  <p class="Drawer-heading">【{{today}}】 上次更新时间：{{updateTime}}</p>
+  <p class="Drawer-heading" v-if="today&&updateTime">【{{today}}】 上次更新时间：{{updateTime}}</p>
     <div class="loading" v-if="showLoading">
       <div></div>
       <div></div>

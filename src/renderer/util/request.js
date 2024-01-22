@@ -70,7 +70,7 @@ export async function GetTodayTodo(pageId){
         const todayPageId = GetTodayPageId(databaseItem)
         if(!todayPageId){
             return {
-                msg: "GetTodayPageId error"
+                msg: "未获取到今天的待办，请检查是否录入待办。"
             }
         }
         const todayPageChildrenRes = await GetTodayPage(todayPageId);

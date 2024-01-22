@@ -16,7 +16,7 @@
     "postinstall": ""
   },
   "build": {
-    "productName": "Notion To Do",
+    "productName": "NotionToDo",
     "appId": "com.doublepoint.com",
     "directories": {
       "output": "build"
@@ -43,7 +43,7 @@
       "icon": "build/icons/icon.icns"
     },
     "win": {
-      "icon": "build/icons/icon.ico",
+      "icon": "build/icons/icon2.ico",
       "target": [
         "portable"
       ]
