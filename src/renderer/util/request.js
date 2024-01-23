@@ -67,14 +67,14 @@ export async function GetTodayTodo(pageId){
             }
         }
         const databaseItem = await GetDatabaseItem(todoDatabasePageId);
-        const todayPageId = GetTodayPageId(databaseItem)
+        const {todayPageId,todayPageTitle} = GetTodayPageId(databaseItem)
         if(!todayPageId){
             return {
                 msg: "未获取到今天的待办，请检查是否录入待办。"
             }
         }
         const todayPageChildrenRes = await GetTodayPage(todayPageId);
-        return todayPageChildrenRes
+        return {data:todayPageChildrenRes,todayPageTitle}
     } catch (error) {
         logger.error(error);
         return error;
@@ -111,7 +111,7 @@ function GetToDoDataBasePageId(res){
 }
 
 function GetTodayPageId(res){
-    let todayPageId;
+    let todayPageId,todayPageTitle;
     try {
         const results = res.data.results;
         if(!results){
@@ -134,6 +134,7 @@ function GetTodayPageId(res){
             
             if(startDiff>=0&&endDiff<=0){
                 todayPageId = element.id;
+                todayPageTitle = element.properties?.Name?.title[0].text.content
             }
         });
     }
@@ -143,7 +144,7 @@ function GetTodayPageId(res){
     if(!todayPageId){
         logger.error(`GetTodayPageId null.${JSON.stringify(res)}`)
     }
-    return todayPageId;
+    return {todayPageId,todayPageTitle};
 }
 
 export function BuildPageId(notionPageUrl){
