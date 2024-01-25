@@ -6,19 +6,18 @@
       :key="block.id"
       :id="block.id"
     >
+      <!-- {{block.type}} -->
       <!-- Ordered List -->
       <ol
         style="margin: 0; padding: 0"
-        v-if="
-          block.type == 'numbered_list_item' && block.numbered_list_item.text
-        "
+        v-if="block.type == 'numbered_list_item' && block.numbered_list_item.rich_text"
       >
         <span v-if="blocks[--i].type != 'numbered_list_item'"
-          >{{ (listCount = 1) }}.
+          >{{ (listCount = 1) }}.block
         </span>
         <span v-else> {{ ++listCount }}. </span>
 
-        <Txt :p="block.numbered_list_item.text" />
+        <Txt :p="block.numbered_list_item.rich_text" />
       </ol>
       <!-- Toggle -->
       <div v-if="block.type == 'u_toggle'">

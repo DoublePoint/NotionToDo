@@ -9,7 +9,7 @@
     "
   >
     <h4 style="text-align: center; margin: 5px">{{ todayPageTitle }}</h4>
-    <p class="Drawer-heading" v-if="todayPageTitle && updateTime">
+    <p class="Drawer-heading" v-if="updateTime">
       <span >上次更新时间：{{ updateTime }}</span>
     </p>
     <div class="loading" v-if="showLoading">

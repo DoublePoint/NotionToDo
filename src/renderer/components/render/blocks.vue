@@ -7,26 +7,26 @@
     -->
     <component v-if="isCustom" :is="customComponent" :block="block"></component>
     <!-- Pragraph -->
-    <p v-else-if="block.type == 'paragraph' && block.paragraph.text">
-      <Txt :p="block.paragraph.text" />
+    <p v-else-if="block.type == 'paragraph' && block.paragraph.rich_text">
+      <Txt :p="block.paragraph.rich_text" />
     </p>
     <!-- Headings -->
-    <h1 v-else-if="block.type == 'heading_1' && block.heading_1.text">
-      <Txt :p="block.heading_1.text" />
+    <h1 v-else-if="block.type == 'heading_1' && block.heading_1.rich_text">
+      <Txt :p="block.heading_1.rich_text" />
     </h1>
-    <h2 v-else-if="block.type == 'heading_2' && block.heading_2.text">
-      <Txt :p="block.heading_2.text" />
+    <h2 v-else-if="block.type == 'heading_2' && block.heading_2.rich_text">
+      <Txt :p="block.heading_2.rich_text" />
     </h2>
-    <h3 v-else-if="block.type == 'heading_3' && block.heading_3.text">
-      <Txt :p="block.heading_3.text" />
+    <h3 v-else-if="block.type == 'heading_3' && block.heading_3.rich_text">
+      <Txt :p="block.heading_3.rich_text" />
     </h3>
     <!-- Unordered list -->
     <li
       v-else-if="
-        block.type == 'bulleted_list_item' && block.bulleted_list_item.text
+        block.type == 'bulleted_list_item' && block.bulleted_list_item.rich_text
       "
     >
-      <Txt :p="block.bulleted_list_item.text" />
+      <Txt :p="block.bulleted_list_item.rich_text" />
     </li>
     <!-- Todo list -->
     <div v-else-if="block.type == 'to_do' ">
@@ -85,7 +85,7 @@
     </Callout>
 
     <!-- Divider -->
-    <hr v-else-if="block.type == 'u_divider'" />
+    <hr v-else-if="block.type == 'divider'" />
 
     <!-- Bookmark -->
     <Bookmark v-else-if="block.type == 'u_bookmark'" :data="block.data" />

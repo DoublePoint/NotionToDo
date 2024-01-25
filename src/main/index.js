@@ -21,17 +21,17 @@ function createWindow () {
   mainWindow = new BrowserWindow({
     height: 477,
     useContentSize: true,
-    width: 360,
+    width: process.env.NODE_ENV !== 'production'?1360:360,
     icon: path.join(__static, 'icon.png'),    // 注意，这里的path是一个node模块哦，需要npm安装并且引入使用。最直接的作用就是拼接字符串。
     alwaysOnTop:true,
     // 需要在BrowserWindow 的 webPreferences 中设置 webviewTag 为 true
     webPreferences: {
-      webviewTag:true,
+      // webviewTag:true,
       nodeIntegration: true,   
       enableRemoteModule: true, 
       webSecurity:false,
    },
-   frame: false, // 去掉导航最大化最小化以及关闭按钮
+   frame: process.env.NODE_ENV !== 'production', // 去掉导航最大化最小化以及关闭按钮
   })
 
   mainWindow.loadURL(winURL)
@@ -39,7 +39,9 @@ function createWindow () {
   mainWindow.on('closed', () => {
     mainWindow = null
   })
-  // mainWindow.webContents.openDevTools()
+  if(process.env.NODE_ENV !== 'production'){
+     mainWindow.webContents.openDevTools()
+  }
 }
 
 app.on('ready', ()=>{
