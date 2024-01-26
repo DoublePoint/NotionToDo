@@ -17,7 +17,7 @@
   },
   "build": {
     "productName": "NotionToDo",
-    "appId": "com.doublepoint.com",
+    "appId": "com.doublepoint.notiontodo",
     "directories": {
       "output": "build"
     },
