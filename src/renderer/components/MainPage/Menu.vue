@@ -36,11 +36,11 @@
           </div>
         </div>
       </div>
-      <!-- <div
+       <div
         class="Drawer-menu-wrapper"
         title="Options"
-        @click="openPage('/Setting/Index')"
-        :class="{ 'is-active': currentSettingPath === '/Setting/Index' }"
+        @click="openPage('/Setting/Config')"
+        :class="{ 'is-active': currentSettingPath === '/Setting/Config' }"
       >
         <div class="Drawer-menu-button">
           <svg
@@ -67,7 +67,7 @@
             />
           </svg>
         </div>
-      </div> -->
+      </div> 
       <div
         class="Drawer-menu-wrapper"
         title="Themes"

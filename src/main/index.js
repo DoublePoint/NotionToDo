@@ -1,6 +1,7 @@
 import { app, BrowserWindow,Menu,ipcMain, } from 'electron'
 import '../renderer/store'
 import path from 'path'
+import { createLocalStore } from './../renderer/util/LocalStore'
 /**
  * Set `__static` path to static files in production
  * https://simulatedgreg.gitbooks.io/electron-vue/content/en/using-static-assets.html
@@ -18,12 +19,13 @@ function createWindow () {
   /**
    * Initial window options
    */
+  const alwaysOnTop = createLocalStore().get('alwaysOnTop')
   mainWindow = new BrowserWindow({
     height: 477,
     useContentSize: true,
     width: process.env.NODE_ENV !== 'production'?1360:360,
     icon: path.join(__static, 'icon.png'),    // 注意，这里的path是一个node模块哦，需要npm安装并且引入使用。最直接的作用就是拼接字符串。
-    alwaysOnTop:true,
+    alwaysOnTop:alwaysOnTop,
     // 需要在BrowserWindow 的 webPreferences 中设置 webviewTag 为 true
     webPreferences: {
       // webviewTag:true,
@@ -76,6 +78,10 @@ ipcMain.on('window-minimize', (event, arg) => {
   } else {
     mainWindow.minimize()
   }
+})
+
+ipcMain.on('toggle-alwaysOnTop', (event, arg) => {
+  mainWindow.setAlwaysOnTop(arg)
 })
 
 /**

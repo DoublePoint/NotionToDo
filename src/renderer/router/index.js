@@ -36,6 +36,11 @@ const router = new Router({
               path:"/Setting/About",
               name:"/Setting/About",
               component: require("@/components/Setting/SettingAbout").default,
+            },
+            {
+              path:"/Setting/Config",
+              name:"/Setting/Config",
+              component: require("@/components/Setting/SettingConfig").default,
             }
           ],
         },

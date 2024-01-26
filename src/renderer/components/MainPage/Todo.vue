@@ -8,9 +8,11 @@
       overflow: scroll;
     "
   >
-    <h4 style="text-align: center; margin: 5px">{{ todayPageTitle }}</h4>
+    <h3 style="text-align: center; margin: 0px">{{ todayPageTitle }}</h3>
     <p class="Drawer-heading" v-if="updateTime">
       <span >上次更新时间：{{ updateTime }}</span>
+      <!-- <span>刷新频率{{refreshTime}}</span> -->
+      <!-- <span>是否置顶{{alwaysOnTop}}</span> -->
     </p>
     <div class="loading" v-if="showLoading">
       <div></div>
@@ -54,7 +56,7 @@ import NoMenu from "@/components/MainPage/Menu.vue";
 import { GetTodayTodo } from "@/util/request.js";
 import { createLocalStore } from "@/util/LocalStore.js";
 import * as dayjs from "dayjs";
-
+let interval;
 export default {
   name: "todo",
   components: { NoMenu, VueNotionRender },
@@ -68,11 +70,22 @@ export default {
       todayPageTitle: "",
     };
   },
+  computed:{
+    refreshTime(){
+      // this.setInterval();
+      return this.$store.getters["View/refreshTime"];
+    },
+    alwaysOnTop(){
+      return this.$store.getters["View/alwaysOnTop"];
+    }
+  },
   created() {
-    this.loadData();
-    setInterval(() => {
-      this.loadData();
-    }, 600000);
+    this.setInterval(this.refreshTime);
+  },
+  watch:{
+    refreshTime(newVal,oldVal){
+      this.setInterval(newVal)
+    }
   },
   methods: {
     async loadData() {
@@ -99,6 +112,17 @@ export default {
     refreshData() {
       this.loadData();
     },
+    setInterval(intervalTime){
+      this.loadData();
+      if(interval){
+        clearInterval(interval)
+      }
+      else{
+        interval = setInterval(() => {
+          this.loadData();
+        }, intervalTime*60*1000);
+      }
+    }
   },
 };
 </script>

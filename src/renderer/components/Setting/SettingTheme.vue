@@ -64,7 +64,6 @@
       selectTheme(themeName) {
         const payload = { key: 'theme', val: themeName }
         this.$store.dispatch('View/setSetting', payload)
-        // this.$store.dispatch('View/setViewState', payload)
         this.themer.apply(themeName)
       }
     }

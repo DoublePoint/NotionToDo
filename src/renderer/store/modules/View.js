@@ -1,13 +1,20 @@
-import { localStore } from './index'
 import { createLocalStore } from '../../util/LocalStore'
 //console.log(localStore);
 const state = {
-  theme: localStore.get('theme') || 'Pomotroid',
+  theme: createLocalStore().get('theme') || 'Pomotroid',
+  alwaysOnTop: createLocalStore().get('alwaysOnTop') || true,
+  refreshTime: createLocalStore().get('refreshTime') || 15,
 }
 
 const getters = {
-  theme() {
+  theme(state) {
     return state.theme
+  },
+  alwaysOnTop(state){
+    return state.alwaysOnTop
+  },
+  refreshTime(state){
+    return state.refreshTime
   }
 }
 
@@ -15,6 +22,7 @@ const mutations = {
   SET_SETTING(state, payload) {
     createLocalStore().set(payload.key, payload.val)
     state[payload.key] = payload.val
+    console.log(state);
   },
 }
 
