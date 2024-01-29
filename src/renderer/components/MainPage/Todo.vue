@@ -94,6 +94,7 @@ export default {
         const pageId = createLocalStore().get("NOTION_PAGE_ID");
         const { data, todayPageTitle } = await GetTodayTodo(pageId);
         this.todayPageTitle = todayPageTitle;
+        console.log(data);
         this.updateTime = dayjs().format("hh:mm:ss");
         // this.today = dayjs().format("YYYY-MM-DD")
         if (data.msg) {

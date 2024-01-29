@@ -12,8 +12,8 @@
         style="margin: 0; padding: 0"
         v-if="block.type == 'numbered_list_item' && block.numbered_list_item.rich_text"
       >
-        <span v-if="blocks[--i].type != 'numbered_list_item'"
-          >{{ (listCount = 1) }}.block
+        <span v-if="i===0||blocks[--i].type != 'numbered_list_item'"
+          >{{ (listCount = 1) }}.
         </span>
         <span v-else> {{ ++listCount }}. </span>
 

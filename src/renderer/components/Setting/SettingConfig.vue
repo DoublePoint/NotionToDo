@@ -2,14 +2,14 @@
   <div class="Container">
     <p class="Drawer-heading">Settings</p>
     <div class="Setting-wrapper">
-      <p class="Setting-title">置顶{{ alwaysOnTop }}</p>
+      <p class="Setting-title">置顶</p>
       <div
         class="Checkbox"
         @click="selectAlwaysOnTop"
         :class="alwaysOnTop ? 'is-active' : 'is-inactive'"
       ></div>
     </div>
-    <p class="Drawer-heading">时间{{ refreshTime }}</p>
+    <p class="Drawer-heading">时间</p>
     <div class="Setting-wrapper">
       <p class="Setting-title">刷新时间（分钟）</p>
       <p class="Setting-value">{{ refreshTime + ':00' }}</p>
