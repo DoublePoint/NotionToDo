@@ -44,7 +44,7 @@
         d="M18.3618 10.4693C18.069 10.1769 17.5947 10.1769 17.3018 10.4693L16.1336 11.636C15.9189 11.8504 15.8545 12.1731 15.9705 12.4534C16.0866 12.7338 16.3601 12.9167 16.6636 12.9167H17.0268C16.6637 15.3678 14.548 17.25 11.9905 17.25C10.4591 17.25 9.08654 16.5759 8.15222 15.5065C7.87968 15.1946 7.40589 15.1627 7.09396 15.4352C6.78203 15.7077 6.7501 16.1815 7.02263 16.4935C8.22995 17.8753 10.0085 18.75 11.9905 18.75C15.376 18.75 18.1668 16.2001 18.5395 12.9167H19.0001C19.3035 12.9167 19.5771 12.7338 19.6931 12.4534C19.8091 12.1731 19.7448 11.8504 19.53 11.636L18.3618 10.4693Z"
         fill="#1C274C"
       />
-    </svg>
+    </svg> 
     <span class="errorMsg" v-if="errorMsg">请求出错: {{ errorMsg }}</span>
     <vue-notion-render :unofficial="false" :data="data" />
   </div>
@@ -95,7 +95,7 @@ export default {
         const { data, todayPageTitle } = await GetTodayTodo(pageId);
         this.todayPageTitle = todayPageTitle;
         console.log(data);
-        this.updateTime = dayjs().format("hh:mm:ss");
+        this.updateTime = dayjs().format("HH:mm:ss");
         // this.today = dayjs().format("YYYY-MM-DD")
         if (data.msg) {
           this.errorMsg = data.msg;
@@ -135,15 +135,16 @@ export default {
 .refreshImg {
   width: 26px;
   height: 26px;
-  background: var(--color-foreground);
+  background: var(--color-foreground-darker);
   // background: var(--color-accent);
   border-radius: 13px;
   position: absolute;
   right: 15px;
+  top: 72px;
   // bottom: 15px;
   &:hover {
     cursor: pointer;
-    background: var(--color-background-lightest);
+    background: var(--color-foreground-darkest);
   }
 }
 .errorMsg {
