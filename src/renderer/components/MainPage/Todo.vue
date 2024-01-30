@@ -118,11 +118,9 @@ export default {
       if(interval){
         clearInterval(interval)
       }
-      else{
-        interval = setInterval(() => {
-          this.loadData();
-        }, intervalTime*60*1000);
-      }
+      interval = setInterval(() => {
+        this.loadData();
+      }, intervalTime*60*1000);
     }
   },
 };
