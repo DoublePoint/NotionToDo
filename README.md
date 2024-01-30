@@ -27,7 +27,7 @@
 
 ## 下载
 
-你可以点击[此处](https://doublepoint.github.io/soft/notiontodo/NotionToDo_0.0.1.exe)下载最新版本，具体安装步骤就查看文档
+你可以点击[此处](https://doublepoint.github.io/soft/notiontodo/NotionToDo_0.0.1.exe)下载最新版本，具体安装步骤就查看[文档](https://doublepoint.github.io/mainblog/2024/01/01/20240101/)
 
 ## 自制
 
@@ -58,27 +58,14 @@
 3. 录入Page Url
 4. 查看当日待办
 
-### 项目依赖：
+### 参考
 
-npm版本、vue版本、番茄时钟的许多样式代码、vue-notion插件的相关代码
+本产品的开发参考了以下内容
 
-参考番茄时钟实现了主题的变化
-参考vue-notion实现了ToDo内容的展示
-本项目对我的意义重大，实现了多个第一次：
-1、第一个
+1. [pomotroid](https://github.com/Splode/pomotroid)
+2. [vue-notion-render](https://github.com/notionblog/vue-notion-render
 
-项目开发流程
-1：制定里程碑计划，Notion
-2：创建里程碑的具体任务
-3：技术预研、electron、vue3
-4：开始开发
-5：打包发布
-6：图标制作
-7：README.MD编写，V站文章编写，
-8：图床使用https://www.superbed.cn/signup?from_id=106215
-9：
-
-#### Build Setup
+### Build Setup
 
 ```bash
 # install dependencies
