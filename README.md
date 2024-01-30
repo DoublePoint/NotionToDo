@@ -63,7 +63,7 @@
 本产品的开发参考了以下内容
 
 1. [pomotroid](https://github.com/Splode/pomotroid)
-2. [vue-notion-render](https://github.com/notionblog/vue-notion-render
+2. [vue-notion-render](https://github.com/notionblog/vue-notion-render)
 
 ### Build Setup
 
