@@ -57,20 +57,20 @@ export async function GetTodayTodo(pageId){
         const pageChildrenRes = await GetPageChildren(pageId);
         if(!pageChildrenRes){
             return {
-                msg: "GetPageChildren error"
+                data:{msg: "GetPageChildren error"}
             }
         }
         const todoDatabasePageId = GetToDoDataBasePageId(pageChildrenRes);
         if(!todoDatabasePageId){
             return {
-                msg: "未获取到TODO Galerry ID"
+                data:{msg: "未获取到TODO Galerry ID"}
             }
         }
         const databaseItem = await GetDatabaseItem(todoDatabasePageId);
         const {todayPageId,todayPageTitle} = GetTodayPageId(databaseItem)
         if(!todayPageId){
             return {
-                msg: "未获取到今天的待办，请检查是否录入待办。"
+                data:{msg: "未获取到今天的待办，请检查是否录入待办。"}
             }
         }
         const todayPageChildrenRes = await GetTodayPage(todayPageId);
