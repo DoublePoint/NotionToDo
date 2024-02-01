@@ -14,7 +14,7 @@
   </a>
 </p>
 
-如果你想查看我的产品博客，请点击这里[查看](https://doublepoint.github.io/mainblog/)
+欢迎查看我的产品博客，点击[这里](https://doublepoint.github.io/mainblog/)
 
 # Notion To Do
 
@@ -47,7 +47,7 @@
 ## 当前的限制
 
 - 个人能力有限，只提供了Windows版本的应用程序
-- 当前支持标签如下
+- 当前支持标签如下 
 
 
   | 标签               | 是否支持 |
