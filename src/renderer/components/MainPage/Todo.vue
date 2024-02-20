@@ -92,6 +92,7 @@ export default {
       this.showLoading = true;
       try {
         const pageId = createLocalStore().get("NOTION_PAGE_ID");
+        console.log(`pageId:${pageId}`);
         const { data, todayPageTitle } = await GetTodayTodo(pageId);
         this.todayPageTitle = todayPageTitle;
         console.log(data);
