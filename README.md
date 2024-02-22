@@ -38,10 +38,10 @@
 如果你有开发能力，可以Fork我的项目到本地自行安装
 
 ## 配置
-
-1. 注册Notion Secret，并获取Secret Key,参考视频链接
-2. 新建一个Notion Page，创建Calendar View,并Connect To 在第一步创建的Intergration,参考视频链接
-3. 录入第一步的Page Url和第二步的Page Url
+参考视频链接
+1. 注册Notion Secret：调换到[https://www.notion.so/my-integrations](https://www.notion.so/my-integrations),点击New integration,名称任意（如20240220），并获取Internal Integration Secret
+2. 新建一个Notion Page(名称任意)，创建Calendar View(名称为ToDo),并Connect To 20240220（在第一步创建的Intergration）
+3. 录入第一步的Internal Integration Secret和第二步的Page Url
 4. 重启程序，查看当日待办
 
 ## 当前的限制
@@ -59,9 +59,6 @@
   | bulleted_list_item | 🆗       |
   | divider            | 🆗       |
   | numbered_list_item | 🆗       |
-
-
-
 
 
 ### 参考
