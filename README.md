@@ -49,7 +49,7 @@
 3. 录入第一步的Internal Integration Secret和第二步的Page Url
 
    ![](assets/20240223_093122_setting.png)
-4. 重启程序，查看当日待办
+4. 重启程序，查看当日待办，预览效果，如下图
 
    ![](assets/20240223_101102_show.png)
 
