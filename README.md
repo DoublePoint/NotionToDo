@@ -1,16 +1,17 @@
-<p align="center">
-  <img src="https://pic.imgdb.cn/item/65b06566871b83018ae674d9.png">
-</p>
+
 
 <p align="center">
+  <img src="assets/20240226_145749_65b06566871b83018ae674d9.png">
+</p>
+<p align="center">
   <a >
-    <img src="https://doublepoint.gitee.io/images/notiontodo/npm.svg">
+    <img src="assets/20240226_145941_npm.svg">
   </a>
   <a >
-    <img src="https://doublepoint.gitee.io/images/notiontodo/vue.svg">
+    <img src="assets/20240226_145948_vue.svg">
   </a>
   <a >
-    <img src="https://doublepoint.gitee.io/images/notiontodo/vue-electron.svg">
+    <img src="assets/20240226_145953_vue-electron.svg">
   </a>
 </p>
 
@@ -49,7 +50,6 @@
 
    ![](assets/20240223_093122_setting.png)
 4. 重启程序，查看当日待办
-
 
    ![](assets/20240223_101102_show.png)
 
