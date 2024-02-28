@@ -41,8 +41,9 @@
 
 ### 参考视频链接-预览篇
 
-
 [预览篇](https://www.bilibili.com/video/BV1wH4y1E7qf/?share_source=copy_web&vd_source=0e16a51d26cdd4432b6236fec1e06412)
+
+### 参考视频链接-配置篇
 [配置篇](https://www.bilibili.com/video/BV1uy42167tZ/?share_source=copy_web&vd_source=0e16a51d26cdd4432b6236fec1e06412)
 
 <!-- <iframe src="https://www.bilibili.com/video/BV1wH4y1E7qf/?share_source=copy_web&vd_source=0e16a51d26cdd4432b6236fec1e06412" scrolling="no" border="0" frameborder="no" framespacing="0" 
@@ -54,6 +55,7 @@ allowfullscreen="true"> </iframe>
 <iframe src="https://www.bilibili.com/video/BV1uy42167tZ/?share_source=copy_web&vd_source=0e16a51d26cdd4432b6236fec1e06412" scrolling="no" border="0" frameborder="no" framespacing="0" 
 style="width:100%;height:400px;"
 allowfullscreen="true"> </iframe> -->
+### 详细配置
 
 1. 获取Notion Secret：跳转到[https://www.notion.so/my-integrations](https://www.notion.so/my-integrations),点击New integration,名称任意（如20240220），并获取Internal Integration Secret
 
