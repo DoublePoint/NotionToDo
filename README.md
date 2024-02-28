@@ -43,6 +43,7 @@
 <iframe src="https://www.bilibili.com/video/BV1wH4y1E7qf/?share_source=copy_web&vd_source=0e16a51d26cdd4432b6236fec1e06412" scrolling="no" border="0" frameborder="no" framespacing="0" 
 style="width:100%;height:400px;"
 allowfullscreen="true"> </iframe>
+<iframe src="//player.bilibili.com/player.html?aid=1051165682&bvid=BV1wH4y1E7qf&cid=1453218732&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 ### 参考视频链接-配置篇
 <iframe src="https://www.bilibili.com/video/BV1uy42167tZ/?share_source=copy_web&vd_source=0e16a51d26cdd4432b6236fec1e06412" scrolling="no" border="0" frameborder="no" framespacing="0" 
