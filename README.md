@@ -1,5 +1,3 @@
-
-
 <p align="center">
   <img src="assets/20240226_145749_65b06566871b83018ae674d9.png">
 </p>
@@ -37,12 +35,21 @@
 ## 自制
 
 如果你有开发能力，可以Fork我的项目到本地自行安装
+源码地址：[GitHub](https://github.com/DoublePoint/NotionToDo)
 
 ## 配置
 
-参考视频链接
+### 参考视频链接-预览篇
+<iframe src="https://www.bilibili.com/video/BV1wH4y1E7qf/?share_source=copy_web&vd_source=0e16a51d26cdd4432b6236fec1e06412" scrolling="no" border="0" frameborder="no" framespacing="0" 
+style="width:100%;height:400px;"
+allowfullscreen="true"> </iframe>
 
-1. 注册Notion Secret：跳转到[https://www.notion.so/my-integrations](https://www.notion.so/my-integrations),点击New integration,名称任意（如20240220），并获取Internal Integration Secret
+### 参考视频链接-配置篇
+<iframe src="https://www.bilibili.com/video/BV1uy42167tZ/?share_source=copy_web&vd_source=0e16a51d26cdd4432b6236fec1e06412" scrolling="no" border="0" frameborder="no" framespacing="0" 
+style="width:100%;height:400px;"
+allowfullscreen="true"> </iframe>
+
+1. 获取Notion Secret：跳转到[https://www.notion.so/my-integrations](https://www.notion.so/my-integrations),点击New integration,名称任意（如20240220），并获取Internal Integration Secret
 
    ![](assets/20240223_093018_newintegration.png)
 2. 新建一个Notion Page(名称任意)，创建Calendar View(名称为ToDo),并Connect To 20240220（在第一步创建的Intergration）![](assets/20240223_092859_connectto.png)
