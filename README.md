@@ -58,12 +58,16 @@ allowfullscreen="true"> </iframe> -->
 ### 详细配置
 
 1. 获取Notion Secret：跳转到[https://www.notion.so/my-integrations](https://www.notion.so/my-integrations),点击New integration,名称任意（如20240220），并获取Internal Integration Secret   
+
 ![](assets/20240223_093018_newintegration.png)
 2. 新建一个Notion Page(名称任意)，创建Calendar View(名称为ToDo),并Connect To 20240220（在第一步创建的Intergration）
+
 ![](assets/20240223_092859_connectto.png)
 3. 录入第一步的Internal Integration Secret和第二步的Page Url
+
 ![](assets/20240223_093122_setting.png)
 4. 重启程序，查看当日待办，预览效果，如下图
+
 ![](assets/20240223_101102_show.png)
 
 ## 当前的限制
